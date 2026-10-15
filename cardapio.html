@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZACK | Pizza Artesanal & Forno a Lenha</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0A0A0D',
+              dark: '#121217',
+              card: '#181820',
+              border: '#2A2A38',
+              accent: '#E63946',
+              fire: '#FF4D30',
+              gold: '#D4AF37',
+              goldHover: '#B89628',
+              muted: '#9E9EA8'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A0D;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2A2A38;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    .fire-glow {
+      box-shadow: 0 0 30px rgba(230, 57, 70, 0.3);
+    }
+    .gold-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #FFF5C0 0%, #D4AF37 50%, #997A15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fire-text-gradient {
+      background: linear-gradient(135deg, #FF7B54 0%, #E63946 50%, #A81C28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(24, 24, 32, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(42, 42, 56, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-brand-black text-gray-200 font-sans antialiased selection:bg-brand-accent selection:text-white min-h-screen flex flex-col pb-20 md:pb-0">
+
+  <!-- STATUS & LOCATION BAR (Inspirado na Parma Pizzaria) -->
+  <div class="bg-brand-dark border-b border-brand-border/60 py-2 px-4 text-xs font-semibold text-gray-300">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Aberto Agora
+        </span>
+        <span class="text-brand-muted hidden sm:inline">•</span>
+        <span>Atendimento das 18h00 às 23h30</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> Entrega Rápida em Palhoça & Região</span>
+        <span class="hidden md:inline"><i class="fa-solid fa-phone text-brand-gold mr-1"></i> (48) 99999-8888</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div class="bg-gradient-to-r from-brand-accent via-brand-fire to-brand-gold py-2 px-4 text-center text-xs font-bold text-white tracking-wider uppercase">
+    🔥 Oferta do Chef: Use o cupom <span class="underline decoration-2 font-black">ZACK10</span> para 10% OFF no seu 1º Pedido!
+  </div>
+
+  <!-- HEADER NAVBAR -->
+  <header class="sticky top-0 z-40 bg-brand-black/90 backdrop-blur-md border-b border-brand-border/60 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-brand-accent to-brand-gold flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-brand-black rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-fire-burner text-brand-gold text-xl"></i>
+          </div>
+        </div>
+        <div>
+          <span class="font-cinzel text-xl sm:text-2xl font-black tracking-wider gold-text-gradient block leading-none">ZACK</span>
+          <span class="text-[9px] tracking-widest text-brand-muted uppercase font-sans font-bold">PIZZA ARTESANAL • FORNO A LENHA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+        <a href="#combos" class="hover:text-brand-gold transition-colors text-brand-gold font-bold"><i class="fa-solid fa-fire-flame-curved mr-1"></i> Combos</a>
+        <a href="#cardapio" class="hover:text-brand-gold transition-colors">Cardápio</a>
+        <a href="#builder" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 font-semibold">
+          <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i> Monte a Sua
+        </a>
+        <a href="#avaliacoes" class="hover:text-brand-gold transition-colors">Avaliações</a>
+        <a href="#faq" class="hover:text-brand-gold transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer()" class="relative p-3.5 rounded-full bg-brand-card border border-brand-border hover:border-brand-gold/60 text-white transition-all flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-basket-shopping text-lg text-brand-gold"></i>
+          <span id="cartBadge" class="absolute -top-1 -right-1 bg-brand-accent text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md animate-pulse">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="md:hidden p-3 rounded-xl bg-brand-card border border-brand-border text-gray-300">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobileNav" class="hidden md:hidden bg-brand-card border-b border-brand-border px-6 py-4 space-y-3 font-medium text-sm">
+      <a href="#combos" onclick="toggleMobileMenu()" class="block py-2 border-b border-brand-border/40 text-brand-gold font-bold">🔥 Combos Especiais</a>
+      <a href="#cardapio" onclick="toggleMobileMenu()" class="block py-2 border-b border-brand-border/40">Cardápio Completo</a>
+      <a href="#builder" onclick="toggleMobileMenu()" class="block py-2 border-b border-brand-border/40">Monte Sua Pizza</a>
+      <a href="#avaliacoes" onclick="toggleMobileMenu()" class="block py-2 border-b border-brand-border/40">Avaliações dos Clientes</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="block py-2">Perguntas Frequentes</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-brand-black via-brand-dark to-brand-black border-b border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Text Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/40 text-brand-accent text-xs font-bold tracking-wide uppercase">
+              <i class="fa-solid fa-flame text-brand-fire"></i> Fermentação Natural 48h
+            </div>
+            <!-- Google Rating Badge (Inspiração Parma) -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-card border border-brand-gold/30 text-xs text-white font-medium">
+              <i class="fa-brands fa-google text-brand-gold"></i>
+              <div class="flex text-brand-gold text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <strong class="font-bold">4.9/5</strong> <span class="text-brand-muted text-[10px]">(+1.800 avaliações)</span>
+            </div>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+            A Verdadeira Pizza Artesanal Assada no <span class="fire-text-gradient">Forno a Lenha</span>.
+          </h1>
+
+          <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Ingredientes nobres importados, molho italiano <strong>San Marzano D.O.P.</strong> e massa leve, aerada e inesquecível. Entregue quentinha na sua porta.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#combos" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-accent to-brand-fire hover:opacity-95 text-white font-bold shadow-xl fire-glow flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-bag-shopping text-lg"></i> Ver Combos da Promoção
+            </a>
+            <a href="#builder" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card hover:bg-brand-border text-white border border-brand-border font-semibold flex items-center justify-center gap-2 transition-all">
+              Monte Sua Pizza <i class="fa-solid fa-wand-magic-sparkles text-brand-gold text-xs"></i>
+            </a>
+          </div>
+
+          <!-- Quick Features Badges -->
+          <div class="pt-8 grid grid-cols-3 gap-4 border-t border-brand-border/50 text-center lg:text-left">
+            <div>
+              <span class="block text-2xl font-black font-serif text-brand-gold">450°C</span>
+              <span class="text-xs text-brand-muted font-medium">Lenha de Macieira</span>
+            </div>
+            <div>
+              <span class="block text-2xl font-black font-serif text-brand-gold">48 Horas</span>
+              <span class="text-xs text-brand-muted font-medium">Maturação Lenta</span>
+            </div>
+            <div>
+              <span class="block text-2xl font-black font-serif text-brand-gold">30-40 min</span>
+              <span class="text-xs text-brand-muted font-medium">Entrega Expressa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Canvas -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-accent via-brand-gold to-brand-fire opacity-30 blur-2xl"></div>
+            <div class="relative rounded-3xl overflow-hidden border border-brand-border bg-brand-card shadow-2xl group">
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80" alt="Pizza Artesanal Forno a Lenha" class="w-full h-[440px] object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-brand-black/85 backdrop-blur-md border border-brand-border/80 flex items-center justify-between shadow-2xl">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gold block">Destaque do Chef</span>
+                  <h4 class="font-serif font-bold text-white text-lg">Trufada Fior di Latte</h4>
+                </div>
+                <span class="text-brand-gold font-bold font-serif text-xl">R$ 64,90</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMBOS SECTION (Inspirado no estilo Parma Pizzaria) -->
+  <section id="combos" class="py-20 bg-brand-dark border-b border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase"><i class="fa-solid fa-fire text-brand-fire"></i> Economize Pedindo Junto</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Combos e Ofertas Imperdíveis</h2>
+        <p class="text-brand-muted text-sm sm:text-base">Combinações perfeitas preparadas com nossas melhores pizzas artesanais e acompanhamentos com preço promocional.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Combo 1 -->
+        <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-gold/50 transition-all flex flex-col justify-between p-6 space-y-6 relative group">
+          <span class="absolute top-4 right-4 bg-brand-accent text-white font-extrabold text-[10px] uppercase px-3 py-1 rounded-full shadow-lg">Economize R$ 18,00</span>
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 text-brand-gold border border-brand-gold/30 flex items-center justify-center text-2xl font-serif">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-white">Combo Casal Gourmet</h3>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              1 Pizza Grande (8 fatias) de qualquer sabor tradicional + 1 Refrigerante 2L + 1 Borda Recheada de Catupiry.
+            </p>
+          </div>
+          <div class="space-y-4 border-t border-brand-border pt-4">
+            <div class="flex items-baseline justify-between">
+              <span class="text-xs text-brand-muted line-through">De R$ 82,90</span>
+              <span class="text-2xl font-serif font-bold text-brand-gold">Por R$ 64,90</span>
+            </div>
+            <button onclick="addComboToCart('Combo Casal Gourmet', 64.90, '1 Pizza Grande + 1 Refri 2L + Borda Catupiry')" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-accent to-brand-fire text-white font-bold text-xs shadow-lg fire-glow transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pedir Combo Casal
+            </button>
+          </div>
+        </div>
+
+        <!-- Combo 2 (Destaque) -->
+        <div class="bg-brand-card rounded-2xl border-2 border-brand-gold overflow-hidden shadow-xl gold-glow transition-all flex flex-col justify-between p-6 space-y-6 relative">
+          <span class="absolute top-4 right-4 bg-brand-gold text-brand-black font-black text-[10px] uppercase px-3 py-1 rounded-full shadow-lg">Mais Pedido 🔥</span>
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-brand-gold text-brand-black flex items-center justify-center text-2xl font-serif">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-white">Combo Família Zack</h3>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              2 Pizzas Grandes (8 fatias cada) + 1 Guaraná Antarctica 2L + 1 Pizza Broto Doce (Nutella com Morango).
+            </p>
+          </div>
+          <div class="space-y-4 border-t border-brand-border pt-4">
+            <div class="flex items-baseline justify-between">
+              <span class="text-xs text-brand-muted line-through">De R$ 145,00</span>
+              <span class="text-2xl font-serif font-bold text-brand-gold">Por R$ 114,90</span>
+            </div>
+            <button onclick="addComboToCart('Combo Família Zack', 114.90, '2 Pizzas Grandes + 1 Refri 2L + 1 Broto Doce')" class="w-full py-3 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-brand-black font-black text-xs shadow-lg transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pedir Combo Família
+            </button>
+          </div>
+        </div>
+
+        <!-- Combo 3 -->
+        <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-gold/50 transition-all flex flex-col justify-between p-6 space-y-6 relative group">
+          <span class="absolute top-4 right-4 bg-brand-accent text-white font-extrabold text-[10px] uppercase px-3 py-1 rounded-full shadow-lg">Frete Grátis</span>
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 text-brand-gold border border-brand-gold/30 flex items-center justify-center text-2xl font-serif">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-white">Combo Mestre Pizzaiolo</h3>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              1 Pizza Especial/Gourmet + 1 Cerveja Artesanal IPA 500ml + Sobremesa Especial + Frete Grátis Incluso.
+            </p>
+          </div>
+          <div class="space-y-4 border-t border-brand-border pt-4">
+            <div class="flex items-baseline justify-between">
+              <span class="text-xs text-brand-muted line-through">De R$ 110,00</span>
+              <span class="text-2xl font-serif font-bold text-brand-gold">Por R$ 89,90</span>
+            </div>
+            <button onclick="addComboToCart('Combo Mestre Pizzaiolo', 89.90, '1 Pizza Gourmet + 1 Cerveja IPA + Sobremesa')" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-accent to-brand-fire text-white font-bold text-xs shadow-lg fire-glow transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pedir Combo Mestre
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PIZZA BUILDER -->
+  <section id="builder" class="py-20 bg-brand-black border-b border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Monte Sua Obra-Prima</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Monte Sua Pizza Customizada</h2>
+        <p class="text-brand-muted text-sm sm:text-base">Escolha tamanho, borda recheada, combine até 2 sabores no meia-a-meia e adicione seus adicionais gourmet favoritos.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Controls Column -->
+        <div class="lg:col-span-8 space-y-8">
+          
+          <!-- Step 1: Size -->
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-black font-bold flex items-center justify-center font-serif text-sm">1</span>
+              <h3 class="font-serif text-xl font-bold text-white">Escolha o Tamanho</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="sizeOptions">
+              <!-- JS Render -->
+            </div>
+          </div>
+
+          <!-- Step 2: Crust -->
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-black font-bold flex items-center justify-center font-serif text-sm">2</span>
+              <h3 class="font-serif text-xl font-bold text-white">Borda Recheada</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="crustOptions">
+              <!-- JS Render -->
+            </div>
+          </div>
+
+          <!-- Step 3: Flavors -->
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-black font-bold flex items-center justify-center font-serif text-sm">3</span>
+                <h3 class="font-serif text-xl font-bold text-white">Sabores (Até 2 para Meia-a-Meia)</h3>
+              </div>
+              <span class="text-xs text-brand-gold font-bold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30" id="flavorCountBadge">0 de 2 selecionados</span>
+            </div>
+            <p class="text-xs text-brand-muted">Nota: Na seleção de 2 sabores, o valor base calculado corresponde ao sabor de maior valor.</p>
+            <div class="grid sm:grid-cols-2 gap-3" id="flavorOptions">
+              <!-- JS Render -->
+            </div>
+          </div>
+
+          <!-- Step 4: Gourmet Extras -->
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-black font-bold flex items-center justify-center font-serif text-sm">4</span>
+              <h3 class="font-serif text-xl font-bold text-white">Adicionais Gourmet (Opcionais)</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="extraOptions">
+              <!-- JS Render -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live Preview Summary Column -->
+        <div class="lg:col-span-4 sticky top-28">
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-gold/40 shadow-xl gold-glow space-y-6">
+            <div class="flex items-center justify-between border-b border-brand-border pb-4">
+              <h3 class="font-serif text-xl font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-pizza-slice text-brand-gold"></i> Resumo da Pizza
+              </h3>
+              <span class="text-[10px] uppercase tracking-wider bg-brand-gold/10 text-brand-gold px-2.5 py-1 rounded-full font-extrabold border border-brand-gold/30">Ao Vivo</span>
+            </div>
+
+            <!-- Dynamic Specs List -->
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between text-gray-300">
+                <span class="text-brand-muted">Tamanho:</span>
+                <span id="summarySize" class="font-semibold text-white">Grande (8 fatias)</span>
+              </div>
+              <div class="flex justify-between text-gray-300">
+                <span class="text-brand-muted">Borda:</span>
+                <span id="summaryCrust" class="font-semibold text-white">Tradicional</span>
+              </div>
+              <div>
+                <span class="text-brand-muted block mb-1">Sabores Selecionados:</span>
+                <ul id="summaryFlavors" class="space-y-1 font-semibold text-brand-gold pl-2 border-l-2 border-brand-gold text-xs">
+                  <li>Nenhum sabor selecionado</li>
+                </ul>
+              </div>
+              <div>
+                <span class="text-brand-muted block mb-1">Adicionais:</span>
+                <div id="summaryExtras" class="flex flex-wrap gap-1 text-xs text-gray-300">
+                  <span class="text-gray-500 italic">Nenhum adicional</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="border-t border-brand-border pt-4 space-y-2">
+              <div class="flex justify-between text-lg font-bold text-white">
+                <span>Valor Total:</span>
+                <span id="summaryTotalPrice" class="font-serif text-2xl text-brand-gold">R$ 0,00</span>
+              </div>
+            </div>
+
+            <!-- Add to Cart CTA -->
+            <button onclick="addCustomPizzaToCart()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-accent to-brand-fire hover:opacity-95 text-white font-bold shadow-lg fire-glow flex items-center justify-center gap-2 transition-all">
+              <i class="fa-solid fa-plus-circle"></i> Adicionar Pizza ao Carrinho
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENU CATALOG SECTION -->
+  <section id="cardapio" class="py-20 bg-brand-dark border-b border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Especialidades Zack</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Cardápio do Chef</h2>
+        </div>
+
+        <!-- Live Search Box -->
+        <div class="relative w-full md:w-80">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-brand-muted"></i>
+          <input type="text" id="menuSearchInput" oninput="filterMenu()" placeholder="Buscar pizza ou ingrediente..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-brand-black border border-brand-border focus:border-brand-gold text-sm text-white placeholder-brand-muted outline-none transition-all" />
+        </div>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="categoryChips">
+        <button onclick="setCategoryFilter('all')" class="category-chip active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-gold text-brand-black transition-all">Todas</button>
+        <button onclick="setCategoryFilter('salgadas-tradicionais')" class="category-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-card hover:bg-brand-border text-gray-300 border border-brand-border transition-all">Tradicionais</button>
+        <button onclick="setCategoryFilter('especiais-gourmet')" class="category-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-card hover:bg-brand-border text-gray-300 border border-brand-border transition-all">Especiais & Gourmet</button>
+        <button onclick="setCategoryFilter('doces')" class="category-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-card hover:bg-brand-border text-gray-300 border border-brand-border transition-all">Pizzas Doces</button>
+        <button onclick="setCategoryFilter('bebidas')" class="category-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-card hover:bg-brand-border text-gray-300 border border-brand-border transition-all">Bebidas</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="menuGrid">
+        <!-- JS Render -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CUSTOMER REVIEWS / PROVA SOCIAL (Inspirado no estilo Parma) -->
+  <section id="avaliacoes" class="py-20 bg-brand-black border-b border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Quem Pede, Aprova</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">O Que Dizem Nossos Clientes</h2>
+        <p class="text-brand-muted text-sm sm:text-base">Média de 4.9 estrelas baseada em mais de 1.800 avaliações reais de quem provou nossa pizza artesanal.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4">
+          <div class="flex items-center gap-1 text-brand-gold text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed italic">
+            "A massa de fermentação natural é incrivelmente leve! Diferente de todas as pizzarias da região. A pizza Trufada Fior di Latte vale cada centavo."
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-brand-border/60">
+            <div class="w-10 h-10 rounded-full bg-brand-gold/20 text-brand-gold font-bold flex items-center justify-center text-xs">RM</div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Rodrigo Martins</h5>
+              <span class="text-[10px] text-brand-muted">Cliente via Google • Palhoça</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4">
+          <div class="flex items-center gap-1 text-brand-gold text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed italic">
+            "Pedimos o Combo Família no fim de semana. Chegou super quente em 30 minutos! O molho de tomate San Marzano dá um sabor muito autêntico."
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-brand-border/60">
+            <div class="w-10 h-10 rounded-full bg-brand-accent/20 text-brand-accent font-bold flex items-center justify-center text-xs">CS</div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Camila Silva</h5>
+              <span class="text-[10px] text-brand-muted">Cliente via iFood • Pedra Branca</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4">
+          <div class="flex items-center gap-1 text-brand-gold text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed italic">
+            "Melhor atendimento via WhatsApp da cidade. O construtor de pizza no site facilitou muito pra personalizar metade/metade sem erro!"
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-brand-border/60">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xs">FA</div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Fernando Almeida</h5>
+              <span class="text-[10px] text-brand-muted">Cliente Recorrente • Centro</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ / PERGUNTAS FREQUENTES (Inspirado na Parma) -->
+  <section id="faq" class="py-20 bg-brand-dark border-b border-brand-border/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="text-center space-y-3">
+        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Tire Suas Dúvidas</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Perguntas Frequentes</h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <details class="bg-brand-card border border-brand-border rounded-xl p-5 text-sm text-gray-300 group [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="font-semibold text-white flex justify-between items-center">
+            <span>Qual o raio e tempo médio de entrega?</span>
+            <i class="fa-solid fa-chevron-down text-brand-gold group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-xs text-brand-muted leading-relaxed">
+            Entregamos em Palhoça, Pedra Branca, Pagani e bairros vizinhos em um raio de até 12km. Nosso tempo médio de entrega é de 30 a 45 minutos.
+          </p>
+        </details>
+
+        <details class="bg-brand-card border border-brand-border rounded-xl p-5 text-sm text-gray-300 group [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="font-semibold text-white flex justify-between items-center">
+            <span>Quais as formas de pagamento aceitas?</span>
+            <i class="fa-solid fa-chevron-down text-brand-gold group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-xs text-brand-muted leading-relaxed">
+            Aceitamos PIX (com 5% de desconto automático no pedido), cartões de crédito e débito das principais bandeiras, além de vale refeição na máquina na entrega.
+          </p>
+        </details>
+
+        <details class="bg-brand-card border border-brand-border rounded-xl p-5 text-sm text-gray-300 group [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="font-semibold text-white flex justify-between items-center">
+            <span>O que torna a massa de 48h de fermentação especial?</span>
+            <i class="fa-solid fa-chevron-down text-brand-gold group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-xs text-brand-muted leading-relaxed">
+            A maturação lenta de 48 horas faz com que a levedura consuma grande parte dos açúcares e glúten da farinha tipo 00 italiana, resultando em uma massa leve, extremamente digestível e aerada.
+          </p>
+        </details>
+
+        <details class="bg-brand-card border border-brand-border rounded-xl p-5 text-sm text-gray-300 group [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="font-semibold text-white flex justify-between items-center">
+            <span>Posso pedir pizza meio a meio?</span>
+            <i class="fa-solid fa-chevron-down text-brand-gold group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-xs text-brand-muted leading-relaxed">
+            Sim! No nosso interativo "Monte a Sua", você escolhe até 2 sabores para montar seu meio a meio de forma rápida e prática.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SLIDE-OUT CART DRAWER -->
+  <div id="cartDrawerBackdrop" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[460px] bg-brand-card border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-brand-border flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-basket-shopping text-brand-gold text-xl"></i>
+        <h3 class="font-serif font-bold text-xl text-white">Sua Sacola</h3>
+      </div>
+      <button onclick="toggleCartDrawer()" class="w-9 h-9 rounded-full bg-brand-black hover:bg-brand-border flex items-center justify-center text-gray-400 hover:text-white transition-all">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="bg-brand-black p-4 border-b border-brand-border space-y-2">
+      <div class="flex justify-between text-xs font-medium">
+        <span id="freeShippingText" class="text-gray-300">Faltam <strong class="text-brand-gold">R$ 100,00</strong> para Frete Grátis!</span>
+        <span id="freeShippingPercent" class="text-brand-gold font-bold">0%</span>
+      </div>
+      <div class="w-full h-2 bg-brand-border rounded-full overflow-hidden">
+        <div id="freeShippingBar" class="h-full bg-gradient-to-r from-brand-gold to-brand-accent transition-all duration-300" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- JS Render -->
+    </div>
+
+    <!-- Drawer Footer / Checkout -->
+    <div class="p-6 border-t border-brand-border bg-brand-black/95 space-y-4">
+      
+      <!-- Coupon Code Box -->
+      <div class="flex gap-2">
+        <input type="text" id="couponInput" placeholder="Cupom (ex: ZACK10)" class="flex-1 uppercase px-3 py-2 rounded-lg bg-brand-card border border-brand-border text-xs text-white placeholder-brand-muted outline-none focus:border-brand-gold" />
+        <button onclick="applyCoupon()" class="px-4 py-2 rounded-lg bg-brand-border hover:bg-brand-gold hover:text-brand-black text-xs font-bold text-brand-gold transition-all">Aplicar</button>
+      </div>
+
+      <!-- Payment Method Selection -->
+      <div class="space-y-1.5">
+        <span class="text-xs font-semibold text-brand-muted">Forma de Pagamento:</span>
+        <div class="grid grid-cols-3 gap-2 text-xs">
+          <button onclick="setPaymentMethod('pix')" id="payPix" class="payment-btn py-2 rounded-lg border border-brand-gold bg-brand-gold/10 text-brand-gold font-bold transition-all">PIX (-5%)</button>
+          <button onclick="setPaymentMethod('cartao')" id="payCartao" class="payment-btn py-2 rounded-lg border border-brand-border text-gray-300 font-medium transition-all">Cartão</button>
+          <button onclick="setPaymentMethod('dinheiro')" id="payDinheiro" class="payment-btn py-2 rounded-lg border border-brand-border text-gray-300 font-medium transition-all">Dinheiro</button>
+        </div>
+      </div>
+
+      <!-- Delivery Details Inputs -->
+      <div class="space-y-2">
+        <input type="text" id="deliveryName" placeholder="Seu Nome Completo *" class="w-full px-3 py-2 rounded-lg bg-brand-card border border-brand-border text-xs text-white placeholder-brand-muted outline-none focus:border-brand-gold" />
+        <input type="text" id="deliveryAddress" placeholder="Endereço Completo com Nº *" class="w-full px-3 py-2 rounded-lg bg-brand-card border border-brand-border text-xs text-white placeholder-brand-muted outline-none focus:border-brand-gold" />
+      </div>
+
+      <!-- Subtotal Breakdown -->
+      <div class="space-y-1 text-xs text-gray-400 border-t border-brand-border/60 pt-3">
+        <div class="flex justify-between">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal" class="text-white">R$ 0,00</span>
+        </div>
+        <div class="flex justify-between text-brand-gold">
+          <span>Desconto:</span>
+          <span id="cartDiscount">- R$ 0,00</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Taxa de Entrega:</span>
+          <span id="cartDeliveryFee" class="text-white">R$ 8,00</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-brand-border">
+          <span>Total Final:</span>
+          <span id="cartTotal" class="text-brand-gold font-serif text-xl">R$ 8,00</span>
+        </div>
+      </div>
+
+      <!-- WhatsApp Checkout CTA -->
+      <button onclick="checkoutWhatsApp()" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg flex items-center justify-center gap-2 transition-all">
+        <i class="fa-brands fa-whatsapp text-xl"></i> Finalizar Pedido no WhatsApp
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- MOBILE STICKY FLOATING ACTION BAR (Inspirado na Parma) -->
+  <div class="fixed bottom-0 inset-x-0 bg-brand-black/95 backdrop-blur-md border-t border-brand-border p-3 z-30 md:hidden flex items-center justify-between gap-3">
+    <a href="#cardapio" class="flex-1 py-3 rounded-xl bg-brand-card border border-brand-border text-white text-xs font-bold text-center">
+      <i class="fa-solid fa-pizza-slice text-brand-gold mr-1"></i> Cardápio
+    </a>
+    <button onclick="toggleCartDrawer()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-brand-accent to-brand-fire text-white text-xs font-bold shadow-lg flex items-center justify-center gap-2">
+      <i class="fa-solid fa-basket-shopping"></i> Ver Sacola
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-black border-t border-brand-border py-12 text-xs text-brand-muted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-fire-burner text-brand-gold text-2xl"></i>
+        <span class="font-cinzel text-lg font-bold text-white">PIZZARIA DO ZACK</span>
+      </div>
+      <p>© 2026 Pizzaria do Zack. Todos os direitos reservados. Feito para os verdadeiros amantes de pizza.</p>
+      <div class="flex gap-4 text-base text-gray-400">
+        <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" class="hover:text-brand-gold"><i class="fa-solid fa-location-dot"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    // DATA SOURCE
+    const SIZES = [
+      { id: 'broto', name: 'Broto', details: '4 fatias • 20cm', factor: 0.7 },
+      { id: 'media', name: 'Média', details: '6 fatias • 28cm', factor: 0.85 },
+      { id: 'grande', name: 'Grande', details: '8 fatias • 35cm', factor: 1.0 },
+      { id: 'gigante', name: 'Gigante', details: '12 fatias • 40cm', factor: 1.25 }
+    ];
+
+    const CRUSTS = [
+      { id: 'tradicional', name: 'Tradicional', price: 0 },
+      { id: 'catupiry', name: 'Catupiry Original', price: 12 },
+      { id: 'creamcheese', name: 'Cream Cheese', price: 14 },
+      { id: 'nutella', name: 'Nutella', price: 16 }
+    ];
+
+    const MENU_ITEMS = [
+      { id: 'p1', name: 'Margherita Speciale', category: 'salgadas-tradicionais', basePrice: 58.00, desc: 'Molho San Marzano D.O.P., Fior di Latte, manjericão fresco e azeite extravirgem.', image: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=600&q=80', badge: 'Clássica' },
+      { id: 'p2', name: 'Trufada Fior di Latte', category: 'especiais-gourmet', basePrice: 64.90, desc: 'Creme de trufas negras, Fior di Latte, cogumelos salteados e finalização gourmet.', image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80', badge: 'Chef Star' },
+      { id: 'p3', name: 'Calabresa Gourmet', category: 'salgadas-tradicionais', basePrice: 54.90, desc: 'Calabresa artesanal defumada, cebola roxa marinada, azeitonas pretas e orégano.', image: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80' },
+      { id: 'p4', name: 'Quatro Queijos D.O.P.', category: 'salgadas-tradicionais', basePrice: 62.90, desc: 'Gorgonzola Dolce, Provolone defumado, Catupiry e Fior di Latte.', image: 'https://images.unsplash.com/photo-1573821663912-569905455b1c?auto=format&fit=crop&w=600&q=80' },
+      { id: 'p5', name: 'Parma & Rúcula', category: 'especiais-gourmet', basePrice: 68.90, desc: 'Presunto de Parma maturado 24 meses, rúcula fresca, lascas de Parmesão e aceto balsâmico.', image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80', badge: 'Premium' },
+      { id: 'p6', name: 'Pistache com Mortadela', category: 'especiais-gourmet', basePrice: 72.90, desc: 'Mortadela de Bologna com pistache, Burrata de Puglia inteira e pesto de pistache.', image: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=600&q=80', badge: 'Gourmet' },
+      { id: 'p7', name: 'Nutella com Morango', category: 'doces', basePrice: 49.90, desc: 'Generosa camada de Nutella original, morangos frescos e lâminas de amêndoa.', image: 'https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=600&q=80' },
+      { id: 'p8', name: 'Chocolate Lindt com Avelã', category: 'doces', basePrice: 54.90, desc: 'Ganache de chocolate belga Lindt, avelãs tostadas e pó de cacau 70%.', image: 'https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?auto=format&fit=crop&w=600&q=80' },
+      { id: 'b1', name: 'Coca-Cola Zero 2L', category: 'bebidas', basePrice: 14.00, desc: 'Garrafa de 2 litros bem gelada.', image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80' },
+      { id: 'b2', name: 'Cerveja Artesanal IPA 500ml', category: 'bebidas', basePrice: 22.00, desc: 'Cerveja amarelada intensa com aromas cítricos de lúpulo.', image: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=600&q=80' }
+    ];
+
+    const EXTRAS = [
+      { id: 'e1', name: 'Azeite Trufado', price: 8.00 },
+      { id: 'e2', name: 'Bacon Crocante', price: 6.00 },
+      { id: 'e3', name: 'Tomate Confiti', price: 5.00 },
+      { id: 'e4', name: 'Burrata Inteira', price: 18.00 },
+      { id: 'e5', name: 'Gorgonzola Extra', price: 7.00 }
+    ];
+
+    // STATE MANAGEMENT
+    let builderState = {
+      size: SIZES[2], // Grande default
+      crust: CRUSTS[0],
+      selectedFlavors: [MENU_ITEMS[0]], // Margherita default
+      selectedExtras: []
+    };
+
+    let cart = [];
+    let currentCategoryFilter = 'all';
+    let activePaymentMethod = 'pix';
+    let appliedDiscount = 0;
+
+    // INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBuilderControls();
+      updateBuilderSummary();
+      renderMenu();
+      updateCartUI();
+    });
+
+    // COMBO ADDITION TO CART
+    function addComboToCart(name, price, details) {
+      cart.push({
+        id: 'combo-' + Date.now(),
+        title: name,
+        price: price,
+        quantity: 1,
+        details: details
+      });
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    // BUILDER FUNCTIONS
+    function renderBuilderControls() {
+      // Size Options
+      const sizeContainer = document.getElementById('sizeOptions');
+      sizeContainer.innerHTML = SIZES.map(s => `
+        <button onclick="selectSize('${s.id}')" class="p-3 rounded-xl border text-left transition-all ${builderState.size.id === s.id ? 'border-brand-gold bg-brand-gold/10 text-white font-bold' : 'border-brand-border bg-brand-black/40 hover:border-brand-border/80 text-gray-400'}">
+          <span class="block text-sm font-bold">${s.name}</span>
+          <span class="text-[10px] text-brand-muted block mt-0.5">${s.details}</span>
+        </button>
+      `).join('');
+
+      // Crust Options
+      const crustContainer = document.getElementById('crustOptions');
+      crustContainer.innerHTML = CRUSTS.map(c => `
+        <button onclick="selectCrust('${c.id}')" class="p-3 rounded-xl border text-left transition-all ${builderState.crust.id === c.id ? 'border-brand-gold bg-brand-gold/10 text-white font-bold' : 'border-brand-border bg-brand-black/40 hover:border-brand-border/80 text-gray-400'}">
+          <span class="block text-sm font-bold">${c.name}</span>
+          <span class="text-[10px] text-brand-gold block mt-0.5">${c.price > 0 ? '+ R$ ' + c.price.toFixed(2).replace('.', ',') : 'Grátis'}</span>
+        </button>
+      `).join('');
+
+      // Flavor Options (only pizza items)
+      const pizzaFlavors = MENU_ITEMS.filter(i => i.category !== 'bebidas');
+      const flavorContainer = document.getElementById('flavorOptions');
+      flavorContainer.innerHTML = pizzaFlavors.map(f => {
+        const isSelected = builderState.selectedFlavors.some(sf => sf.id === f.id);
+        return `
+          <div onclick="toggleFlavor('${f.id}')" class="p-3 rounded-xl border cursor-pointer flex items-center justify-between transition-all ${isSelected ? 'border-brand-gold bg-brand-gold/10' : 'border-brand-border bg-brand-black/40 hover:border-brand-border/80'}">
+            <div class="flex items-center gap-3">
+              <img src="${f.image}" class="w-12 h-12 rounded-lg object-cover" />
+              <div>
+                <h5 class="text-xs font-bold text-white">${f.name}</h5>
+                <span class="text-[10px] text-brand-gold">R$ ${f.basePrice.toFixed(2).replace('.', ',')}</span>
+              </div>
+            </div>
+            <i class="fa-solid ${isSelected ? 'fa-circle-check text-brand-gold text-lg' : 'fa-circle text-brand-border text-lg'}"></i>
+          </div>
+        `;
+      }).join('');
+
+      // Extras Options
+      const extraContainer = document.getElementById('extraOptions');
+      extraContainer.innerHTML = EXTRAS.map(e => {
+        const isSelected = builderState.selectedExtras.some(se => se.id === e.id);
+        return `
+          <button onclick="toggleExtra('${e.id}')" class="p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${isSelected ? 'border-brand-gold bg-brand-gold/10 text-white font-bold' : 'border-brand-border bg-brand-black/40 text-gray-400'}">
+            <span class="text-xs">${e.name}</span>
+            <span class="text-[10px] text-brand-gold">+R$ ${e.price.toFixed(0)}</span>
+          </button>
+        `;
+      }).join('');
+
+      document.getElementById('flavorCountBadge').innerText = `${builderState.selectedFlavors.length} de 2 selecionados`;
+    }
+
+    function selectSize(id) {
+      builderState.size = SIZES.find(s => s.id === id);
+      renderBuilderControls();
+      updateBuilderSummary();
+    }
+
+    function selectCrust(id) {
+      builderState.crust = CRUSTS.find(c => c.id === id);
+      renderBuilderControls();
+      updateBuilderSummary();
+    }
+
+    function toggleFlavor(id) {
+      const flavor = MENU_ITEMS.find(i => i.id === id);
+      const exists = builderState.selectedFlavors.some(f => f.id === id);
+
+      if (exists) {
+        if (builderState.selectedFlavors.length > 1) {
+          builderState.selectedFlavors = builderState.selectedFlavors.filter(f => f.id !== id);
+        }
+      } else {
+        if (builderState.selectedFlavors.length < 2) {
+          builderState.selectedFlavors.push(flavor);
+        } else {
+          builderState.selectedFlavors[1] = flavor;
+        }
+      }
+      renderBuilderControls();
+      updateBuilderSummary();
+    }
+
+    function toggleExtra(id) {
+      const extra = EXTRAS.find(e => e.id === id);
+      const exists = builderState.selectedExtras.some(e => e.id === id);
+      if (exists) {
+        builderState.selectedExtras = builderState.selectedExtras.filter(e => e.id !== id);
+      } else {
+        builderState.selectedExtras.push(extra);
+      }
+      renderBuilderControls();
+      updateBuilderSummary();
+    }
+
+    function calculateCustomPizzaPrice() {
+      if (builderState.selectedFlavors.length === 0) return 0;
+      const baseMax = Math.max(...builderState.selectedFlavors.map(f => f.basePrice));
+      const sizeAdjusted = baseMax * builderState.size.factor;
+      const crustPrice = builderState.crust.price;
+      const extrasPrice = builderState.selectedExtras.reduce((acc, e) => acc + e.price, 0);
+
+      return sizeAdjusted + crustPrice + extrasPrice;
+    }
+
+    function updateBuilderSummary() {
+      document.getElementById('summarySize').innerText = `${builderState.size.name} (${builderState.size.details.split('•')[0].trim()})`;
+      document.getElementById('summaryCrust').innerText = builderState.crust.name;
+
+      const flavorList = document.getElementById('summaryFlavors');
+      flavorList.innerHTML = builderState.selectedFlavors.map(f => `<li>• ${f.name}</li>`).join('');
+
+      const extrasBox = document.getElementById('summaryExtras');
+      if (builderState.selectedExtras.length === 0) {
+        extrasBox.innerHTML = '<span class="text-gray-500 italic">Nenhum adicional</span>';
+      } else {
+        extrasBox.innerHTML = builderState.selectedExtras.map(e => `<span class="bg-brand-border px-2 py-0.5 rounded text-[10px] text-brand-gold">${e.name}</span>`).join('');
+      }
+
+      const total = calculateCustomPizzaPrice();
+      document.getElementById('summaryTotalPrice').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    function addCustomPizzaToCart() {
+      if (builderState.selectedFlavors.length === 0) return;
+      const price = calculateCustomPizzaPrice();
+      const flavorNames = builderState.selectedFlavors.map(f => f.name).join(' / ');
+      const title = `Pizza ${builderState.size.name} (${flavorNames})`;
+
+      let details = [`Borda: ${builderState.crust.name}`];
+      if (builderState.selectedExtras.length > 0) {
+        details.push(`Extras: ${builderState.selectedExtras.map(e => e.name).join(', ')}`);
+      }
+
+      cart.push({
+        id: 'custom-' + Date.now(),
+        title: title,
+        price: price,
+        quantity: 1,
+        details: details.join(' | ')
+      });
+
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    // MENU CATALOG RENDER & FILTERING
+    function renderMenu() {
+      const grid = document.getElementById('menuGrid');
+      const search = document.getElementById('menuSearchInput').value.toLowerCase();
+
+      const filtered = MENU_ITEMS.filter(item => {
+        const matchesCategory = currentCategoryFilter === 'all' || item.category === currentCategoryFilter;
+        const matchesSearch = item.name.toLowerCase().includes(search) || item.desc.toLowerCase().includes(search);
+        return matchesCategory && matchesSearch;
+      });
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-gold/40 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              ${item.badge ? `<span class="absolute top-3 left-3 bg-brand-accent text-white font-bold text-[10px] uppercase px-2.5 py-1 rounded-full shadow">${item.badge}</span>` : ''}
+            </div>
+            <div class="p-6 space-y-2">
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="font-serif font-bold text-white text-lg">${item.name}</h4>
+                <span class="text-brand-gold font-bold font-serif text-lg">R$ ${item.basePrice.toFixed(2).replace('.', ',')}</span>
+              </div>
+              <p class="text-brand-muted text-xs leading-relaxed">${item.desc}</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="addCatalogItemToCart('${item.id}')" class="w-full py-2.5 rounded-xl bg-brand-black hover:bg-brand-gold hover:text-brand-black border border-brand-border text-xs font-bold text-white transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-plus"></i> Adicionar à Sacola
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setCategoryFilter(category) {
+      currentCategoryFilter = category;
+      document.querySelectorAll('.category-chip').forEach(btn => {
+        btn.classList.remove('bg-brand-gold', 'text-brand-black');
+        btn.classList.add('bg-brand-card', 'text-gray-300');
+      });
+      event.target.classList.remove('bg-brand-card', 'text-gray-300');
+      event.target.classList.add('bg-brand-gold', 'text-brand-black');
+      renderMenu();
+    }
+
+    function filterMenu() {
+      renderMenu();
+    }
+
+    function addCatalogItemToCart(id) {
+      const item = MENU_ITEMS.find(i => i.id === id);
+      const existing = cart.find(c => c.id === item.id);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: item.id,
+          title: item.name,
+          price: item.basePrice,
+          quantity: 1,
+          details: item.category === 'bebidas' ? 'Bebida 2L / Unidade' : 'Pizza Tamanho Grande Padrão'
+        });
+      }
+
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    // CART DRAWER & CHECKOUT
+    function toggleCartDrawer(forceOpen = false) {
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartDrawerBackdrop');
+
+      if (forceOpen || drawer.classList.contains('translate-x-full')) {
+        drawer.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('opacity-0');
+        setTimeout(() => backdrop.classList.add('hidden'), 300);
+      }
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+      document.getElementById('cartBadge').innerText = totalCount;
+
+      const container = document.getElementById('cartItemsContainer');
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 space-y-3">
+            <i class="fa-solid fa-basket-shopping text-4xl text-brand-border"></i>
+            <p class="text-sm text-brand-muted">Sua sacola está vazia.</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = cart.map((item, index) => `
+          <div class="p-4 rounded-xl bg-brand-black border border-brand-border/60 space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h5 class="text-xs font-bold text-white">${item.title}</h5>
+                <span class="text-[10px] text-brand-muted block">${item.details}</span>
+              </div>
+              <button onclick="removeCartItem(${index})" class="text-brand-accent hover:text-red-400 text-xs"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <div class="flex items-center gap-2 bg-brand-card px-2 py-1 rounded-lg border border-brand-border">
+                <button onclick="changeQty(${index}, -1)" class="text-xs text-brand-gold font-bold">-</button>
+                <span class="text-xs text-white font-bold w-4 text-center">${item.quantity}</span>
+                <button onclick="changeQty(${index}, 1)" class="text-xs text-brand-gold font-bold">+</button>
+              </div>
+              <span class="text-xs font-serif font-bold text-brand-gold">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+      const freeShippingGoal = 100;
+      const progress = Math.min(100, (subtotal / freeShippingGoal) * 100);
+
+      document.getElementById('freeShippingBar').style.width = `${progress}%`;
+      document.getElementById('freeShippingPercent').innerText = `${progress.toFixed(0)}%`;
+
+      if (subtotal >= freeShippingGoal) {
+        document.getElementById('freeShippingText').innerHTML = '🎉 Parabéns! Você ganhou <strong class="text-emerald-400">Frete Grátis</strong>!';
+      } else {
+        const remaining = freeShippingGoal - subtotal;
+        document.getElementById('freeShippingText').innerHTML = `Faltam <strong class="text-brand-gold">R$ ${remaining.toFixed(2).replace('.', ',')}</strong> para Frete Grátis!`;
+      }
+
+      const deliveryFee = (subtotal >= freeShippingGoal || subtotal === 0) ? 0 : 8.00;
+      let discountVal = subtotal * appliedDiscount;
+
+      if (activePaymentMethod === 'pix') {
+        discountVal += (subtotal - discountVal) * 0.05;
+      }
+
+      const total = Math.max(0, subtotal - discountVal + deliveryFee);
+
+      document.getElementById('cartSubtotal').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      document.getElementById('cartDiscount').innerText = `- R$ ${discountVal.toFixed(2).replace('.', ',')}`;
+      document.getElementById('cartDeliveryFee').innerText = deliveryFee === 0 ? 'GRÁTIS' : `R$ ${deliveryFee.toFixed(2).replace('.', ',')}`;
+      document.getElementById('cartTotal').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    function changeQty(index, delta) {
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeCartItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      if (code === 'ZACK10') {
+        appliedDiscount = 0.10;
+        alert('Cupom ZACK10 aplicado! 10% de desconto concedido.');
+      } else {
+        alert('Cupom inválido. Tente ZACK10');
+      }
+      updateCartUI();
+    }
+
+    function setPaymentMethod(method) {
+      activePaymentMethod = method;
+      document.querySelectorAll('.payment-btn').forEach(b => {
+        b.classList.remove('border-brand-gold', 'bg-brand-gold/10', 'text-brand-gold');
+        b.classList.add('border-brand-border', 'text-gray-300');
+      });
+
+      if (method === 'pix') {
+        document.getElementById('payPix').classList.add('border-brand-gold', 'bg-brand-gold/10', 'text-brand-gold');
+      } else if (method === 'cartao') {
+        document.getElementById('payCartao').classList.add('border-brand-gold', 'bg-brand-gold/10', 'text-brand-gold');
+      } else {
+        document.getElementById('payDinheiro').classList.add('border-brand-gold', 'bg-brand-gold/10', 'text-brand-gold');
+      }
+      updateCartUI();
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Sua sacola está vazia!');
+        return;
+      }
+      const name = document.getElementById('deliveryName').value.trim();
+      const address = document.getElementById('deliveryAddress').value.trim();
+
+      if (!name || !address) {
+        alert('Por favor, preencha seu nome e endereço de entrega.');
+        return;
+      }
+
+      let msg = `*NOVO PEDIDO - PIZZARIA DO ZACK*\n\n`;
+      msg += `*Cliente:* ${name}\n`;
+      msg += `*Endereço:* ${address}\n`;
+      msg += `*Pagamento:* ${activePaymentMethod.toUpperCase()}\n\n`;
+      msg += `*ITENS:* \n`;
+
+      cart.forEach((item, i) => {
+        msg += `${i+1}. ${item.title} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2)}\n   _${item.details}_\n`;
+      });
+
+      const totalText = document.getElementById('cartTotal').innerText;
+      msg += `\n*TOTAL FINAL:* ${totalText}\n\nObrigado! Aguardo confirmação do pedido.`;
+
+      const encoded = encodeURIComponent(msg);
+      window.open(`https://wa.me/5548999998888?text=${encoded}`, '_blank');
+    }
+
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>

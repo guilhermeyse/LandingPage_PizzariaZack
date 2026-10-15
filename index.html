@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZACK | Pizza Artesanal no Forno a Lenha</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Playfair+Display:ital,wght@0,700;0,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#09090B',
+              dark: '#121217',
+              card: '#181822',
+              border: '#282836',
+              accent: '#E63946',
+              fire: '#FF4D30',
+              gold: '#D4AF37',
+              muted: '#9E9EA8'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .fire-glow { box-shadow: 0 0 35px rgba(230, 57, 70, 0.35); }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF5C0 0%, #D4AF37 50%, #997A15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fire-gradient-text {
+      background: linear-gradient(135deg, #FF7B54 0%, #E63946 50%, #A81C28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-brand-black text-gray-200 font-sans antialiased selection:bg-brand-accent selection:text-white min-h-screen flex flex-col justify-between pb-16 md:pb-0">
+
+  <!-- TOPBAR INFORMATIVA (ESTILO PARMA) -->
+  <div class="bg-brand-dark border-b border-brand-border/60 py-2.5 px-6 lg:px-16 text-xs text-gray-300">
+    <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Aberto Agora
+        </span>
+        <span class="text-brand-muted hidden sm:inline">•</span>
+        <span>Atendimento das 18h00 às 23h30</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span><i class="fa-solid fa-graduation-cap text-brand-gold mr-1"></i> Ao lado da <strong>FMP</strong> (Palhoça)</span>
+        <span class="hidden md:inline"><i class="fa-solid fa-motorcycle text-brand-fire mr-1"></i> Entrega Expressa</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER EXPANDIDO -->
+  <header class="sticky top-0 z-40 bg-brand-black/90 backdrop-blur-md border-b border-brand-border/40 py-2">
+    <div class="w-full px-6 sm:px-10 lg:px-16 h-20 flex items-center justify-between">
+      
+      <!-- Logo Maior no Canto Esquerdo -->
+      <a href="#" class="flex items-center gap-4 group">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-accent to-brand-gold flex items-center justify-center p-0.5 shadow-xl group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-brand-black rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-fire-burner text-brand-gold text-xl"></i>
+          </div>
+        </div>
+        <div>
+          <span class="font-cinzel text-2xl sm:text-3xl font-black tracking-widest gold-gradient-text block leading-none">ZACK</span>
+          <span class="text-[9px] tracking-[0.2em] text-brand-muted uppercase font-sans font-bold block mt-1">PIZZA ARTESANAL</span>
+        </div>
+      </a>
+
+      <!-- Navegação Interna & Botão -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-gray-300">
+        <a href="#combos" class="hover:text-brand-gold transition-colors">Combos</a>
+        <a href="#diferenciais" class="hover:text-brand-gold transition-colors">Diferenciais</a>
+        <a href="#localizacao" class="hover:text-brand-gold transition-colors">Localização</a>
+        <a href="#faq" class="hover:text-brand-gold transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- Botão Maior no Canto Direito -->
+      <a href="cardapio.html" class="px-7 py-3 rounded-2xl bg-gradient-to-r from-brand-accent to-brand-fire hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider shadow-xl fire-glow flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5">
+        <i class="fa-solid fa-pizza-slice text-sm"></i>
+        <span>Ver Cardápio & Pedir</span>
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO BANNER IMERSIVO COM PROVA SOCIAL -->
+    <section class="relative overflow-hidden py-24 lg:py-32 bg-brand-black">
+      
+      <!-- Imagem de Fundo Nítida com Sombra sob o Texto -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=80" 
+          alt="Pizza artesanal no forno a lenha" 
+          class="w-full h-full object-cover object-right sm:object-center brightness-105 contrast-105" 
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent"></div>
+      </div>
+
+      <div class="w-full px-6 sm:px-10 lg:px-16 relative z-10">
+        <div class="max-w-2xl space-y-8 text-left">
+          
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-black/90 border border-brand-border text-xs text-gray-200 backdrop-blur-md shadow-md">
+              <i class="fa-solid fa-graduation-cap text-brand-gold text-sm"></i> Próximo à <strong class="text-white">FMP</strong>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-black/90 border border-brand-gold/30 text-xs text-white backdrop-blur-md">
+              <i class="fa-brands fa-google text-brand-gold"></i>
+              <div class="flex text-brand-gold text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <strong class="font-bold">4.9/5.0</strong>
+            </div>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.15] drop-shadow-lg">
+            A verdadeira pizza artesanal assada no <span class="fire-gradient-text">forno a lenha</span>.
+          </h1>
+
+          <p class="text-gray-200 text-base sm:text-lg max-w-xl font-normal leading-relaxed drop-shadow">
+            Massa de fermentação natural maturada por 48 horas, molho de tomate italiano San Marzano D.O.P. e ingredientes selecionados.
+          </p>
+
+          <!-- Ação Principal -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="cardapio.html" class="inline-flex items-center justify-center px-9 py-4 rounded-2xl bg-gradient-to-r from-brand-accent to-brand-fire hover:opacity-95 text-white font-extrabold text-sm uppercase tracking-wider shadow-2xl fire-glow gap-3 transition-all transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-bag-shopping text-base"></i> Ver Cardápio & Pedir
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE COMBOS & PROMOÇÕES (INSPIRADO NA PARMA) -->
+    <section id="combos" class="py-20 bg-brand-dark border-y border-brand-border/40">
+      <div class="w-full px-6 sm:px-10 lg:px-16">
+        
+        <div class="max-w-7xl mx-auto space-y-12">
+          
+          <div class="text-left space-y-2">
+            <span class="text-brand-gold text-xs font-bold tracking-widest uppercase"><i class="fa-solid fa-fire text-brand-fire"></i> Economize Pedindo Junto</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Combos Promocionais</h2>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- Combo 1 -->
+            <div class="bg-brand-card rounded-3xl border border-brand-border/80 p-7 flex flex-col justify-between space-y-6 hover:border-brand-gold/50 transition-all shadow-xl group">
+              <div class="space-y-4">
+                <span class="inline-block bg-brand-accent/20 text-brand-accent font-bold text-[10px] uppercase px-3 py-1 rounded-full border border-brand-accent/30">Economia Garantida</span>
+                <h3 class="font-serif font-bold text-2xl text-white">Combo Casal</h3>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  1 Pizza Grande (8 fatias) + 1 Guaraná ou Coca-Cola 2L + Borda Recheada Grátis.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-brand-muted line-through block">De R$ 82,90</span>
+                  <span class="text-2xl font-serif font-bold text-brand-gold">R$ 64,90</span>
+                </div>
+                <a href="cardapio.html" class="px-5 py-2.5 rounded-xl bg-brand-black hover:bg-brand-gold hover:text-brand-black border border-brand-border text-xs font-bold text-white transition-all">
+                  Pedir Combo
+                </a>
+              </div>
+            </div>
+
+            <!-- Combo 2 (Destaque) -->
+            <div class="bg-brand-card rounded-3xl border-2 border-brand-gold p-7 flex flex-col justify-between space-y-6 shadow-2xl relative group">
+              <span class="absolute -top-3 right-6 bg-brand-gold text-brand-black font-black text-[10px] uppercase px-3 py-1 rounded-full shadow-lg">Mais Pedido 🔥</span>
+              <div class="space-y-4">
+                <span class="inline-block bg-brand-gold/20 text-brand-gold font-bold text-[10px] uppercase px-3 py-1 rounded-full border border-brand-gold/30">Combo Galera</span>
+                <h3 class="font-serif font-bold text-2xl text-white">Combo Família Zack</h3>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  2 Pizzas Grandes (8 fatias cada) + 1 Refrigerante 2L + 1 Broto Doce de Nutella.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-brand-muted line-through block">De R$ 145,00</span>
+                  <span class="text-2xl font-serif font-bold text-brand-gold">R$ 114,90</span>
+                </div>
+                <a href="cardapio.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-accent to-brand-fire text-white font-extrabold text-xs shadow-lg fire-glow transition-all">
+                  Pedir Combo
+                </a>
+              </div>
+            </div>
+
+            <!-- Combo 3 -->
+            <div class="bg-brand-card rounded-3xl border border-brand-border/80 p-7 flex flex-col justify-between space-y-6 hover:border-brand-gold/50 transition-all shadow-xl group">
+              <div class="space-y-4">
+                <span class="inline-block bg-brand-accent/20 text-brand-accent font-bold text-[10px] uppercase px-3 py-1 rounded-full border border-brand-accent/30">Frete Grátis</span>
+                <h3 class="font-serif font-bold text-2xl text-white">Combo Mestre</h3>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  1 Pizza Gourmet Especial + 1 Cerveja Artesanal IPA 500ml + Entrega Grátis na FMP e região.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-brand-muted line-through block">De R$ 110,00</span>
+                  <span class="text-2xl font-serif font-bold text-brand-gold">R$ 89,90</span>
+                </div>
+                <a href="cardapio.html" class="px-5 py-2.5 rounded-xl bg-brand-black hover:bg-brand-gold hover:text-brand-black border border-brand-border text-xs font-bold text-white transition-all">
+                  Pedir Combo
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS DA MARCA -->
+    <section id="diferenciais" class="relative py-24 bg-brand-black border-b border-brand-border/40 overflow-hidden">
+      
+      <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-fire/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="w-full px-6 sm:px-10 lg:px-16 relative z-10">
+        
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          
+          <!-- Card 1 -->
+          <div class="p-8 rounded-3xl bg-brand-card/80 backdrop-blur-sm border border-brand-border/80 hover:border-brand-gold/60 transition-all duration-300 text-left space-y-5 group hover:-translate-y-1.5 shadow-xl">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-gold/20 to-brand-gold/5 border border-brand-gold/40 flex items-center justify-center text-brand-gold text-4xl shadow-lg group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-wheat-awn"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="font-serif font-bold text-white text-2xl">Massa 48h</h3>
+              <p class="text-sm text-brand-muted leading-relaxed">Fermentação lenta e natural com farinha italiana tipo 00. Leve, aerada e incomparavelmente fofa.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-8 rounded-3xl bg-brand-card/80 backdrop-blur-sm border border-brand-border/80 hover:border-brand-accent/60 transition-all duration-300 text-left space-y-5 group hover:-translate-y-1.5 shadow-xl">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-brand-accent/5 border border-brand-accent/40 flex items-center justify-center text-brand-accent text-4xl shadow-lg group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="font-serif font-bold text-white text-2xl">San Marzano D.O.P.</h3>
+              <p class="text-sm text-brand-muted leading-relaxed">Molho de tomate italiano autêntico, colhido no solo vulcânico do Vesúvio. Doce e naturalmente equilibrado.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-8 rounded-3xl bg-brand-card/80 backdrop-blur-sm border border-brand-border/80 hover:border-brand-fire/60 transition-all duration-300 text-left space-y-5 group hover:-translate-y-1.5 shadow-xl">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-fire/20 to-brand-fire/5 border border-brand-fire/40 flex items-center justify-center text-brand-fire text-4xl shadow-lg group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-fire-burner"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="font-serif font-bold text-white text-2xl">Forno a Lenha 450°C</h3>
+              <p class="text-sm text-brand-muted leading-relaxed">Assada em segundos na lenha ecológica de macieira para um aroma defumado inesquecível.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO (DESTAQUE FMP) -->
+    <section id="localizacao" class="py-24 bg-brand-dark border-b border-brand-border/40 relative">
+      <div class="w-full px-6 sm:px-10 lg:px-16">
+        <div class="max-w-7xl mx-auto bg-gradient-to-r from-brand-card via-brand-black to-brand-card rounded-3xl border border-brand-border/80 p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-2xl relative overflow-hidden hover:border-brand-gold/40 transition-all">
+          
+          <div class="space-y-4 text-left max-w-xl">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-bold uppercase tracking-wider border border-brand-gold/30">
+              <i class="fa-solid fa-location-dot text-sm"></i> Localização & Delivery
+            </div>
+            
+            <h3 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Onde Estamos</h3>
+            
+            <p class="text-base text-brand-muted leading-relaxed">
+              Localizados estrategicamente <strong class="text-white">ao lado da FMP (Faculdade Municipal de Palhoça)</strong>. Entrega ultra-rápida com pizzas quentinhas para toda a região.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-6 pt-2 text-sm text-gray-300">
+              <span class="flex items-center gap-2 font-semibold"><i class="fa-solid fa-graduation-cap text-brand-gold text-lg"></i> Ao lado da FMP</span>
+              <span class="flex items-center gap-2 font-semibold"><i class="fa-solid fa-motorcycle text-brand-fire text-lg"></i> Delivery Express</span>
+            </div>
+          </div>
+
+          <div class="w-full md:w-auto">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto px-8 py-4 rounded-2xl bg-brand-black hover:bg-brand-border border border-brand-border text-white text-xs font-bold flex items-center justify-center gap-3 transition-all shadow-xl hover:text-brand-gold group">
+              <i class="fa-solid fa-map-location-dot text-brand-gold text-2xl group-hover:scale-110 transition-transform"></i>
+              <span>Abrir no Google Maps</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PERGUNTAS FREQUENTES (FAQ ACCORDION - ESTILO PARMA) -->
+    <section id="faq" class="py-24 bg-brand-black">
+      <div class="w-full px-6 sm:px-10 lg:px-16">
+        <div class="max-w-4xl mx-auto space-y-10">
+          
+          <div class="text-center space-y-3">
+            <span class="text-brand-gold text-xs font-bold tracking-widest uppercase">Perguntas Frequentes</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Tire Suas Dúvidas</h2>
+          </div>
+
+          <div class="space-y-4">
+            
+            <details class="bg-brand-card border border-brand-border rounded-2xl p-6 text-sm text-gray-300 group [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+              <summary class="font-bold text-white text-base flex justify-between items-center">
+                <span>Qual o tempo médio de entrega para a região da FMP e Palhoça?</span>
+                <i class="fa-solid fa-chevron-down text-brand-gold group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="mt-4 text-xs text-brand-muted leading-relaxed">
+                Por estarmos localizados ao lado da FMP, os pedidos para a faculdade e arredores levam em média de 25 a 35 minutos.
+              </p>
+            </details>
+
+            <details class="bg-brand-card border border-brand-border rounded-2xl p-6 text-sm text-gray-300 group [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+              <summary class="font-bold text-white text-base flex justify-between items-center">
+                <span>Quais formas de pagamento são aceitas?</span>
+                <i class="fa-solid fa-chevron-down text-brand-gold group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="mt-4 text-xs text-brand-muted leading-relaxed">
+                Aceitamos PIX (com desconto no pedido), cartões de crédito/débito e vale refeição na maquininha na hora da entrega.
+              </p>
+            </details>
+
+            <details class="bg-brand-card border border-brand-border rounded-2xl p-6 text-sm text-gray-300 group [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+              <summary class="font-bold text-white text-base flex justify-between items-center">
+                <span>Como funciona a fermentação de 48 horas?</span>
+                <i class="fa-solid fa-chevron-down text-brand-gold group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="mt-4 text-xs text-brand-muted leading-relaxed">
+                A maturação lenta de dois dias degrada o glúten e os açúcares complexos da farinha italiana, gerando uma massa extremamente leve que não pesa no estômago.
+              </p>
+            </details>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER FINAL DE CONVERSÃO -->
+    <section class="py-20 text-center border-t border-brand-border/40">
+      <div class="max-w-3xl mx-auto px-6 space-y-8">
+        <h2 class="font-serif text-3xl sm:text-5xl font-black text-white">Pronto para fazer seu pedido?</h2>
+        <div>
+          <a href="cardapio.html" class="inline-flex items-center gap-3 px-10 py-4 shadow-xl rounded-2xl bg-gradient-to-r from-brand-accent to-brand-fire text-white font-extrabold text-xs uppercase tracking-wider fire-glow transition-all transform hover:-translate-y-0.5">
+            <i class="fa-solid fa-basket-shopping text-base"></i> Ir Para o Cardápio
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MOBILE STICKY FLOATING CTA BAR (INSPIRADO NA PARMA) -->
+  <div class="fixed bottom-0 inset-x-0 bg-brand-black/95 backdrop-blur-md border-t border-brand-border p-3 z-30 md:hidden flex items-center justify-between gap-3">
+    <a href="cardapio.html" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-accent to-brand-fire text-white text-xs font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2">
+      <i class="fa-solid fa-pizza-slice"></i> Abrir Cardápio & Pedir
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-black border-t border-brand-border/40 py-8 text-xs text-brand-muted">
+    <div class="w-full px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <span class="font-cinzel text-sm font-bold text-white">PIZZARIA DO ZACK</span>
+      <p>© 2026 Todos os direitos reservados. Próximo à FMP.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
